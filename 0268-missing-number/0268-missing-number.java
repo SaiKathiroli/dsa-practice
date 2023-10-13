@@ -1,30 +1,14 @@
 class Solution {
-    public int missingNumber(int[] nums) 
-    {
-        int i=0;
-        int result=0;
-        while(i<nums.length)
-        {
-            if(nums[i]!=i && nums[i]<nums.length)
-            {
-                int v =nums[i];
-                int temp = nums[i];
-                nums[i] = nums[nums[i]];
-                nums[v] = temp;
-            }
-            else
-            {
-                i++;
-            }
-        } 
-        for(int k=0;k<nums.length;k++)
-        {
-            if(k != nums[k])
-            {
-                return k;
-            }
-        }
+    public int missingNumber(int[] nums) {
+        int sum = 0;
+        int total = 0;
 
-        return nums.length;  
+        for (int i=0; i<nums.length; i++) sum += nums[i];
+
+        total = (nums.length * (nums.length + 1)) / 2;
+
+        // System.out.println(sum + " "  + total);
+
+        return total - sum;
     }
 }
