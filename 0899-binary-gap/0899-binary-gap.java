@@ -28,7 +28,7 @@ class Solution {
                 n=n>>1;
                 int shiftorCount = counts(n);
                max = Math.max(max,shiftorCount);
-               n=n>>shiftorCount-1;
+               n=n>>(shiftorCount-1);
             }
             else
             {
