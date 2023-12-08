@@ -20,6 +20,12 @@ class Solution {
 
         if(root.val == val) return root;
 
-        return val<root.val ? searchBST(root.left,val) : searchBST(root.right,val);
+       TreeNode X =  searchBST(root.left,val); 
+       TreeNode Y =  searchBST(root.right,val);
+
+        if(X != null &&  X.val == val) return X;
+        if(Y != null &&  Y.val == val) return Y;
+        else return null;
+
     }
 }
