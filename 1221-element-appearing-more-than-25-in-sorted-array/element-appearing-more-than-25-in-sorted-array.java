@@ -20,7 +20,7 @@ class Solution {
         for(int z:lst)
         {
             int u = map.get(z);
-            if((u*4) > len)
+            if((u) > len/4)
             {
                 return z;
             }
