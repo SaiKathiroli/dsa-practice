@@ -1,23 +1,30 @@
+/*
+Best Run-Time Algorithm:
+1. REVERSE THE ENTIRE ARRAY
+2. REVERSE TILL K-1 FROM 0
+3, REVERSE TILL N-1 FROM K
+*/
 class Solution {
     public void rotate(int[] nums, int k) {
-        int n = nums.length;
-        k = k % n; // Handle cases where k is greater than the array length
+        int n=nums.length;
+        k=k%n;
+        int i=0;
+        int j=n-1;
+        rotate(nums,0,n-1);
+        rotate(nums,0,k-1);
+        rotate(nums,k,n-1);
 
-        Queue<Integer> Q = new LinkedList<>();
+        
+    }
+    public static void rotate(int arr[],int i,int j){
 
-        // Enqueue the last k elements
-        for (int i = n - k; i < n; i++) {
-            Q.add(nums[i]);
+        while(i<j){
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;
+            j--;
         }
 
-        // Shift the remaining elements to make space for rotated elements
-        for (int i = 0; i < n-k; i++) {
-            Q.add(nums[i]);
-        }
-
-        // Dequeue and put the rotated elements at the beginning
-        for (int i = 0; i < n; i++) {
-            nums[i] = Q.remove();
-        }
     }
 }
