@@ -11,12 +11,12 @@ class Solution {
         }
 
         // Shift the remaining elements to make space for rotated elements
-        for (int i = n - 1; i >= k; i--) {
-            nums[i] = nums[i - k];
+        for (int i = 0; i < n-k; i++) {
+            Q.add(nums[i]);
         }
 
         // Dequeue and put the rotated elements at the beginning
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < n; i++) {
             nums[i] = Q.remove();
         }
     }
