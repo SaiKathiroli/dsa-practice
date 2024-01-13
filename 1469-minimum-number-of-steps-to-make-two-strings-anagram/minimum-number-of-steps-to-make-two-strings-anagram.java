@@ -1,3 +1,9 @@
+/*
+1. Initilaize a, size ; a for ASCII ; size for ALPHABETS count
+2. for each character in s & t increment or decrement it's occurence by 1
+3. Now Loop Through the alphabet array to get the remaining letters count
+4. return the count
+*/
 class Solution {
     final static int a = 97; //ASCII OF 'a'
     final static int size = 26; //size of array
