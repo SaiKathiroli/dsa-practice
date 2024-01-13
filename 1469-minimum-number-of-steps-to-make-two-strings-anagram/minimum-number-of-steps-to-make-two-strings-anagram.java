@@ -1,42 +1,23 @@
 class Solution {
-    public int minSteps(String s, String t) 
-    {
-        /*
-        1. In a Hash Table, add all the characters of s
-        2. For each character in t, check it's correspondence from Hash Table
-        3. If in Hash Table, Remove it from the Hash Table
-        4. Else increase the count by 1
-        */
-        HashMap<Character,Integer> ht = new HashMap<>();
-        for(char ch:s.toCharArray())
-        {
-            if(ht.containsKey(ch))
-            {
-                int v = ht.get(ch);
-                ht.put(ch,v+1);
+    final static int a = 97; //ASCII OF 'a'
+    final static int size = 26; //size of array
+    public int minSteps(String s, String t) {
+        int[] arr = new int[size];
+            int l = s.length();
+            char[] sa = s.toCharArray();
+            char[] ta = t.toCharArray();
+            for (int i = 0; i < l; i++) {
+                int sci = sa[i] - a;
+                int tci = ta[i] - a;
+                arr[sci] += 1;
+                arr[tci] -= 1;
             }
-            else
-            {
-                ht.put(ch,1);
-            }
-        }
-        int count = 0;
-        for(char ch:t.toCharArray())
-        {
-            if(ht.containsKey(ch))
-            {
-                int v = ht.get(ch);
-                if(v==1)
-                {
-                    ht.remove(ch);
+            int ans = 0;
+            for (int n : arr) {
+                if (n > 0) {
+                    ans += n;
                 }
-                else ht.put(ch,v-1);
             }
-            else
-            {
-                count = count + 1;
-            }
-        }
-        return count;
+            return ans;
     }
 }
