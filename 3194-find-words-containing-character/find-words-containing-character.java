@@ -1,11 +1,13 @@
 class Solution {
     public List<Integer> findWordsContaining(String[] words, char x) {
-        List<Integer> ans = new ArrayList<>();
-    for(int i = 0; i < words.length; ++i){
-        for(int j = 0; j < words[i].length(); ++j){
-            if(words[i].charAt(j) == x) { ans.add(i); break; }
+        ArrayList<Integer> result = new ArrayList<Integer>();
+
+        for(int i=0; i<words.length; i++){
+            if(words[i].indexOf(x) >= 0){
+                result.add(i);
+            }
         }
-    }
-    return ans;
+
+        return result;
     }
 }
